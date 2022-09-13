@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class EventsController extends Controller{
     
     public function index(){
-        $data = Event::all();
+        $data = Event::orderBy('eventdate')->get();
         return view('events.index', compact('data'));
     }
 
@@ -43,14 +43,10 @@ class EventsController extends Controller{
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id){
-        //
+        $data = Event::find($id);
+        if(!isset($data)){return"<h1>ID: $id não encontrado!</h1>";}
+        return view('events.edit', compact('data'));
     }
 
     /**
@@ -61,7 +57,12 @@ class EventsController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id){
-        //
+        $obj = Event::find($id);
+        $obj->name = mb_strtoupper($request->name, 'UTF-8');
+        $obj->eventdate = $request->eventdate;
+        $obj->save();
+        
+        return redirect()->route('events.index');
     }
 
     /**
