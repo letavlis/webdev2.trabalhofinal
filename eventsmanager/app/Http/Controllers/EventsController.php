@@ -12,13 +12,8 @@ class EventsController extends Controller{
         return view('events.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(){
-        //
+        return view('events.create');
     }
 
     /**
@@ -28,7 +23,14 @@ class EventsController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        //
+        
+        $obj = new Event();
+
+        $obj->name = mb_strtoupper($request->name, 'UTF-8');
+        $obj->eventdate = $request->eventdate;
+        $obj->save();
+        
+        return redirect()->route('events.index');
     }
 
     /**
