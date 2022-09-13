@@ -4,8 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Datalist extends Component {
-    
+class Datalist extends Component{
     public $title;
     public $crud;
     public $header;

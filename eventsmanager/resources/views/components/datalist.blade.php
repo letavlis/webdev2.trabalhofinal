@@ -1,4 +1,6 @@
 <div>
+    <!-- Act only according to that maxim whereby you can, at the same time, will that it should become a universal law. - Immanuel Kant -->
+</div><div>
     <table class="table table-sm align-middle caption-top table-striped">
         <caption>Tabela de <b>{{ $title }}</b></caption>
         <thead >
