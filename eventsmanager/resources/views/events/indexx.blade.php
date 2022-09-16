@@ -7,15 +7,15 @@
 
     <div class="row">
         <div class="col">
-            
+
             <!-- Utiliza o componente "datalist" criado -->
-            <x-datalist 
+            <x-datalist
                 :title="'Eventos'"
                 :crud="'events'"
-                :header="['NOME', 'DATA', 'AÇÕES']" 
+                :header="['NOME', 'DATA', 'AÇÕES']"
                 :fields="['name', 'eventdate']"
                 :data="$data"
-                :hide="[true, false, true, false]" 
+                :hide="[true, false, true, false]"
                 :info="['id', 'name']"
                 :remove="'name'"
             />

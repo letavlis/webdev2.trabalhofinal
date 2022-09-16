@@ -6,7 +6,7 @@ use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventsController extends Controller{
-    
+
     public function index(){
         $data = Event::orderBy('eventdate')->get();
         return view('events.index', compact('data'));
@@ -23,13 +23,13 @@ class EventsController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-        
+
         $obj = new Event();
 
         $obj->name = mb_strtoupper($request->name, 'UTF-8');
         $obj->eventdate = $request->eventdate;
         $obj->save();
-        
+
         return redirect()->route('events.index');
     }
 
@@ -61,7 +61,7 @@ class EventsController extends Controller{
         $obj->name = mb_strtoupper($request->name, 'UTF-8');
         $obj->eventdate = $request->eventdate;
         $obj->save();
-        
+
         return redirect()->route('events.index');
     }
 
