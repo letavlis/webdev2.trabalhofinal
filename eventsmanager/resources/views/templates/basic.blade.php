@@ -8,7 +8,7 @@
     <title>EM - Events Manager</title>
 </head>
 <body>
-    <div class="container py-4 d-flex justify-content-center">
+    <div class="container py-4 d-flex justify-content-center ">
         @yield('conteudo')
     </div>
 </body>

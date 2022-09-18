@@ -4,8 +4,8 @@
 
 <div class="row">
     <div class="col">
-        <table class="table align-middle caption-top table-striped">
-            <caption>Tabela de <b>eventos</b> no sistema</caption>
+        <table class="table align-middle caption-top table-striped text-white">
+            <caption class="text-white">Tabela de <b>eventos</b> no sistema</caption>
             <thead>
             <tr>
                 <th scope="col" class="d-none d-md-table-cell">ID</th>
@@ -16,7 +16,7 @@
             </thead>
             <tbody>
                 @foreach ($data as $item)
-                    <tr>
+                    <tr class="bg-light text-dark">
                         <td class="d-none d-md-table-cell">{{ $item->id }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->eventdate}}</td>
@@ -48,5 +48,5 @@
         </table>
     </div>
 </div>
-            
+
 @endsection

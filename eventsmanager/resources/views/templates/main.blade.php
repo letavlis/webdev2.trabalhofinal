@@ -16,7 +16,7 @@
     </style>
 </head>
 
-<body>
+<body class="bg-secondary text-white">
     <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
             <a href="{{route('index')}}" class="navbar-brand ms-sm-3">
@@ -48,44 +48,26 @@
                             <li><a href="#" class="dropdown-item">Alunos</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown ps-2">
+                    <li class="nnav-item dropdown ps-2">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFF" class="bi bi-house-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFF" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                             </svg>
-                            <span class="ps-1 text-white">Organizador</span>
+                            <span class="ps-1 text-white">{{ Auth::user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Eventos</a></li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('Sair') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </li>
                         </ul>
-                    </li>
-                    <li class="nav-item dropdown ps-2">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFF" class="bi bi-house-fill" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                                <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-                            </svg>
-                            <span class="ps-1 text-white">Aluno</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Inscrições </a></li>
-                            <li><a href="#" class="dropdown-item">Eventos</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item ps-2 me-3">
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a class="nav-link" href="route('logout')" onclick="event.preventDefault();this.closest('form').submit();">
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFF" class="bi bi-door-closed-fill" viewBox="0 0 16 16">
-                                    <path d="M12 1a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2a1 1 0 0 1 1-1h8zm-2 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
-                                </svg>
-
-                                {{ __('Sair') }}
-
-                            </a>
-                        </form>
                     </li>
                 </ul>
             </div>
@@ -94,7 +76,7 @@
     <div class="container py-4">
         <div class="row">
             <div class="col">
-                <h3 class="text-secondary d-none d-md-block"><b>{{ $titulo }}</b></h3>
+                <h3 class="text-secondary d-none d-md-block text-white"><b>{{ $titulo }}</b></h3>
             </div>
             @if(isset($rota))
             <div class="col d-flex justify-content-end">
