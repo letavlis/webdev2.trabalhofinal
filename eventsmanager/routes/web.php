@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('templates.main')->with('titulo', "");
+    return view('welcome');
 })->name('index');
+
+Route::get('/dashboard', function () {
+    return view('templates.main')->with('titulo', "");
+    //return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
 Route::resource('events', 'EventsController');
+
+require __DIR__.'/auth.php';
