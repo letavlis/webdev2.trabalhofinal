@@ -4,15 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Event extends Model
+class EventPlanner extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
+    public function event() {
+        return $this->belongsTo('App\Models\Event');
+    }
     public function users() {
-        return $this->belongsToMany('\App\Models\Users', 'event_planners');
-        }
+        return $this->belongsTo('App\Models\Users');
+    }
 
 }
