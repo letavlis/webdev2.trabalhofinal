@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('event_planners', function (Blueprint $table) {
-            $table->user_id();
-            $table->event_id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('event_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('event_id')->references('id')->on('event');
             $table->primary(['user_id', 'event_id']);
