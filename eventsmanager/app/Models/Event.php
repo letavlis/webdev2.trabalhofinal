@@ -13,6 +13,10 @@ class Event extends Model
 
     public function users() {
         return $this->belongsToMany('\App\Models\Users', 'event_planners');
-        }
+    }
+
+    public function usersatt() {
+        return $this->belongsToMany('\App\Models\Users', 'attendants');
+    }
 
 }

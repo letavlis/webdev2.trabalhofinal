@@ -45,6 +45,10 @@ class User extends Authenticatable
 
     public function event() {
         return $this->belongsToMany('\App\Models\Event', 'event_planners');
-        }
+    }
+
+    public function eventatt() {
+        return $this->belongsToMany('\App\Models\Event', 'attendants');
+    }
 
 }
