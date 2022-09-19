@@ -8,11 +8,13 @@ use Illuminate\Http\Request;
 class EventsController extends Controller{
 
     public function index(){
+
         $data = Event::orderBy('eventdate')->get();
         return view('events.index', compact('data'));
     }
 
     public function create(){
+        $this->authorize('create', Event::class);
         return view('events.create');
     }
 
@@ -23,7 +25,7 @@ class EventsController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request){
-
+        $this->authorize('create', Event::class);
         $obj = new Event();
 
         $obj->name = mb_strtoupper($request->name, 'UTF-8');
