@@ -19,11 +19,11 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('templates.main')->with('titulo', "");
-    //return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function(){
-    Route::resource('events', 'EventsController');
+    Route::resource('events', '\App\Http\Controllers\EventsController');
+    Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 });
 
 
