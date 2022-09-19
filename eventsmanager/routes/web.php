@@ -22,6 +22,9 @@ Route::get('/dashboard', function () {
     //return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('events', 'EventsController');
+Route::middleware(['auth'])->group(function(){
+    Route::resource('events', 'EventsController');
+});
+
 
 require __DIR__.'/auth.php';
