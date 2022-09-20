@@ -15,7 +15,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        $this->call(EventSeeder::class, false, ['total' => 5]);
+        $this->call([
+            EventSeeder::class,
+            RoleSeeder::class,
+            //pode remover a linha de UserSeeder caso não possua uma UserSeeder.. Criar e utilizar apenas em teste!!
+            UserSeeder::class
+        ]);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
