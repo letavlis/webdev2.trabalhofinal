@@ -4,14 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Date;
 
 class EventsController extends Controller{
 
     public function index(){
-
-        $data = Event::orderBy('eventdate')->get();
+        $date = Date::now();
+        $data = Event::where('eventdate', '>', $date)->orderBy('eventdate')->get();
         $this->authorize('viewAny', Event::class);
         return view('events.index', compact('data'));
+    }
+    public function list(){
+        $date = Date::now();
+        $data = Event::where('eventdate', '>', $date)->orderBy('eventdate')->get();
+        return view('events.list', compact('data'));
     }
 
     public function create(){
