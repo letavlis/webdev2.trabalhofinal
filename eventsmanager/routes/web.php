@@ -24,6 +24,8 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function(){
     Route::resource('events', '\App\Http\Controllers\EventsController');
     Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+    Route::get('/student', 'UserController@student')->name('users.student');
+    Route::resource('users','UserController');
 });
 
 
