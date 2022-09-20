@@ -10,7 +10,13 @@ class UserController extends Controller{
 
     public function student(){
         $data = User::where('role_id', '>', 1)->get();
+        $this->authorize('viewAny', User::class);
         return view('users.student', compact('data'));
+    }
+    public function planner(){
+        $data = User::where('role_id', 2)->get();
+        $this->authorize('viewAny', User::class);
+        return view('users.planner', compact('data'));
     }
 
     public function edit($id){
