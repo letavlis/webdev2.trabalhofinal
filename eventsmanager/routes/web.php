@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('events', '\App\Http\Controllers\EventsController');
     Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     Route::get('/student', 'UserController@student')->name('users.student');
+    Route::get('/planner', 'UserController@planner')->name('users.planner');
     Route::resource('users','UserController');
 });
 

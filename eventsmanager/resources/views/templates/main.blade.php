@@ -46,7 +46,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{route('events.index')}}" class="dropdown-item">Eventos</a></li>
-                            <li><a href="#" class="dropdown-item">Organizadores</a></li>
+                            <li><a href="{{route('users.planner')}}" class="dropdown-item">Organizadores</a></li>
                             <li><a href="{{route('users.student')}}" class="dropdown-item">Alunos</a></li>
                         </ul>
                     </li>
