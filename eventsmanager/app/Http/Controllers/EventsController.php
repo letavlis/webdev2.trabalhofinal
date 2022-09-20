@@ -10,6 +10,7 @@ class EventsController extends Controller{
     public function index(){
 
         $data = Event::orderBy('eventdate')->get();
+        $this->authorize('viewAny', Event::class);
         return view('events.index', compact('data'));
     }
 

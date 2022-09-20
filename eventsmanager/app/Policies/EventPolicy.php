@@ -16,9 +16,9 @@ class EventPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(User $user)
-    {
+    public function viewAny(User $user){
         //
+        return $user->role_id == 1||$user->role_id == 2;
     }
 
     /**
