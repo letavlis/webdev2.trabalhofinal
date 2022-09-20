@@ -17,7 +17,7 @@
 </head>
 
 <body class="bg-secondary text-white">
-    <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark ">
         <div class="container-fluid">
             <a href="{{route('dashboard')}}" class="navbar-brand ms-sm-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="#fff" class="bi bi-calendar2-event" viewBox="0 0 16 16">
@@ -38,7 +38,7 @@
             <div class="collapse navbar-collapse" id="itens">
                 <ul class="navbar-nav ms-auto">
                     @can('viewAny', Auth::user())
-                        <li class="nav-item dropdown ps-2">
+                        <li class="nav-item dropdown ps-2 me-sm-4">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-sliders" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"/>
@@ -51,7 +51,7 @@
                                 <li><a href="{{route('users.student')}}" class="dropdown-item">Alunos</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown ps-2">
+                        <li class="nav-item dropdown ps-2 me-sm-4">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-card-list" viewBox="0 0 16 16">
                                     <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -61,12 +61,10 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" class="dropdown-item">Eventos</a></li>
-                                <li><a href="#" class="dropdown-item">Organizadores</a></li>
-                                <li><a href="#" class="dropdown-item">Alunos</a></li>
                             </ul>
                         </li>
                     @endcan
-                    <li class="nav-item dropdown ps-2">
+                    <li class="nav-item dropdown ps-2 me-sm-4">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-mortarboard" viewBox="0 0 16 16">
                                 <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/>
@@ -75,19 +73,18 @@
                             <span class="ps-1 text-white">Aluno</span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item">Eventos</a></li>
-                            <li><a href="#" class="dropdown-item">Organizadores</a></li>
-                            <li><a href="#" class="dropdown-item">Alunos</a></li>
+                            <li><a href="{{route('events.list')}}" class="dropdown-item">Eventos</a></li>
+                            <li><a href="#" class="dropdown-item">Inscrições</a></li>
                         </ul>
                     </li>
-                    <li class="nnav-item dropdown ps-2">
+                    <li class="nav-item dropdown ps-2 me-sm-4">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" class="bi bi-person" viewBox="0 0 16 16">
                                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                               </svg>
                             <span class="ps-1 text-white">{{ Auth::user()->name }}</span>
                         </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu ">
                             <li>
                                 <a class="dropdown-item" href="{{route('logout')}}">Sair</a>
                             </li>

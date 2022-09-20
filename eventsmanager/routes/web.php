@@ -27,7 +27,9 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/student', 'UserController@student')->name('users.student');
     Route::get('/planner', 'UserController@planner')->name('users.planner');
     Route::resource('users','UserController');
+    Route::resource('attendants', 'AttendantController');
 });
 
+Route::get('/eventslist', 'EventsController@list')->name('events.list');
 
 require __DIR__.'/auth.php';
