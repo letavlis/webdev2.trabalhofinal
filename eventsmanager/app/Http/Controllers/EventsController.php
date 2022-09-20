@@ -47,6 +47,7 @@ class EventsController extends Controller{
 
     public function edit($id){
         $data = Event::find($id);
+        $this->authorize('update', $data);
         if(!isset($data)){return"<h1>ID: $id não encontrado!</h1>";}
         return view('events.edit', compact('data'));
     }
@@ -75,5 +76,9 @@ class EventsController extends Controller{
      */
     public function destroy($id){
         //
+        $obj = Event::find($id);
+        $this->authorize('delete', $obj);
+        $obj->destroy();
+        return redirect()->route('events.index');
     }
 }

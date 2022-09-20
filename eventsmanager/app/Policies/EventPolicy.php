@@ -51,9 +51,9 @@ class EventPolicy
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Event $event)
-    {
+    public function update(User $user, Event $event){
         //
+        return $user->role_id == 1;
     }
 
     /**
@@ -63,9 +63,9 @@ class EventPolicy
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Event $event)
-    {
+    public function delete(User $user, Event $event){
         //
+        return $user->role_id == 1;
     }
 
     /**
