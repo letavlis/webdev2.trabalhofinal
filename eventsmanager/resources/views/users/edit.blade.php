@@ -5,7 +5,7 @@
 <form action="{{ route('users.update', $data->id) }}" method="POST">
     @csrf
     @method('PUT')
-    <div class="row">
+    <div class="row text-dark">
         <div class="col" >
             <div class="form-floating mb-3">
                 <input
