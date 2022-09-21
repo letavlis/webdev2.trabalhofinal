@@ -12,11 +12,11 @@ class Event extends Model
     use SoftDeletes;
 
     public function users() {
-        return $this->belongsToMany('\App\Models\Users', 'event_planners');
+        return $this->belongsToMany('\App\Models\User', 'event_planners');
     }
 
     public function usersatt() {
-        return $this->belongsToMany('\App\Models\Users', 'attendants');
+        return $this->belongsToMany('\App\Models\User', 'attendees');
     }
 
 }

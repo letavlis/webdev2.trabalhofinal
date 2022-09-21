@@ -50,6 +50,9 @@ class EventsController extends Controller{
      */
     public function show($id){
         //
+        $data = Event::find($id);
+
+        return view('events.show', compact('data'));
     }
 
     public function edit($id){

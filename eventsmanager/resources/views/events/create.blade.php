@@ -3,14 +3,14 @@
 @section('conteudo')
 
 <form action="{{ route('events.store') }}" method="POST">
-    @csrf  
-    <div class="row">
+    @csrf
+    <div class="row text-dark">
         <div class="col" >
             <div class="form-floating mb-3">
-                <input 
-                    type="text" 
-                    class="form-control @if($errors->has('name')) is-invalid @endif" 
-                    name="name" 
+                <input
+                    type="text"
+                    class="form-control @if($errors->has('name')) is-invalid @endif"
+                    name="name"
                     placeholder="Nome"
                     value="{{old('name')}}"
                 />
@@ -22,10 +22,10 @@
                 @endif
             </div>
             <div class="form-floating mb-3">
-                <input 
-                        type="datetime-local" 
-                        class="form-control @if($errors->has('eventdate')) is-invalid @endif" 
-                        name="eventdate" 
+                <input
+                        type="datetime-local"
+                        class="form-control @if($errors->has('eventdate')) is-invalid @endif"
+                        name="eventdate"
                         placeholder="Data"
                         value="{{old('eventdate')}}"
                     />
