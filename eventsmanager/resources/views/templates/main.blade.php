@@ -74,7 +74,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{route('events.list')}}" class="dropdown-item">Eventos</a></li>
-                            <li><a href="#" class="dropdown-item">Inscrições</a></li>
+                            <li><a href="{{route('attendees.index')}}" class="dropdown-item">Inscrições</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown ps-2 me-sm-4">
