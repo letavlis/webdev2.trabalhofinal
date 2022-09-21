@@ -43,12 +43,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function event() {
+    public function eventt() {
         return $this->belongsToMany('\App\Models\Event', 'event_planners');
     }
 
     public function eventatt() {
-        return $this->belongsToMany('\App\Models\Event', 'attendants');
+        return $this->belongsToMany('\App\Models\Event', 'attendees');
     }
 
 }
