@@ -12,8 +12,8 @@ class EventPlanner extends Model
     public function event() {
         return $this->belongsTo('App\Models\Event');
     }
-    public function users() {
-        return $this->belongsTo('App\Models\Users');
+    public function user() {
+        return $this->belongsTo('App\Models\User');
     }
 
 }
